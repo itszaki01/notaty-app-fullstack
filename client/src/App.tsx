@@ -3,7 +3,7 @@ import { AppShell, Button, Center, Group, TextInput, Title, Image } from "@manti
 import "@mantine/notifications/styles.css";
 import DataTable from "./components/DataTable";
 import Logo from "./assets/note.png";
-import { useMediaQuery } from "@mantine/hooks";
+import { useColorScheme, useMediaQuery } from "@mantine/hooks";
 import { useModalsContext } from "./context/ModalsContext";
 import { useState } from "react";
 
@@ -11,13 +11,15 @@ export default function App() {
     const isMobileAndTablest = useMediaQuery("(max-width:991px)");
     const { openAddModal } = useModalsContext();
     const [searchTitel, setSearchTitle] = useState<string>("");
-
+    const colorSchema = useColorScheme('dark')
+    console.log(colorSchema);
+    
     return (
         <AppShell header={{ height: 70 }} padding="md">
             <AppShell.Header bg={"gray.7"}>
                 <Group h={"100%"} align="center" px={"xl"}>
                     <Image src={Logo} w={50} />
-                    <Title order={3}>Notaty</Title>
+                    <Title order={2} c={'gray.2'} >Notaty</Title>
                 </Group>
             </AppShell.Header>
 
